@@ -1,5 +1,8 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
+
+app.use(cors()); // Enable CORS for all routes
 
 const books = [
   { id: 1, title: 'Harry Potter' },
@@ -7,7 +10,7 @@ const books = [
 ];
 
 app.get('/books', (req, res) => {
-  res.json(books);
+  res.json(books); // Send book data as JSON response
 });
 
 app.listen(3000, () => {
